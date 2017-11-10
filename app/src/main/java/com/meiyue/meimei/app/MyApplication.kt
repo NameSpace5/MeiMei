@@ -25,7 +25,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
-        context = this
+        context = applicationContext
         activityList = LinkedList()
         windowManager = context!!.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         loginInfo = getSharedPreferences("LOGIN", Context.MODE_PRIVATE)

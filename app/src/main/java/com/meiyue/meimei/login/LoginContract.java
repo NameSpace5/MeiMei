@@ -1,7 +1,5 @@
 package com.meiyue.meimei.login;
 
-import android.content.Context;
-
 import com.meiyue.meimei.mvp.BasePresenter;
 import com.meiyue.meimei.mvp.BaseView;
 
@@ -16,6 +14,6 @@ public class LoginContract {
     }
 
     interface  Presenter extends BasePresenter<View> {
-        
+
     }
 }

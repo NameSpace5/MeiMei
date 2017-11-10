@@ -7,24 +7,18 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.aspsine.swipetoloadlayout.OnLoadMoreListener;
+import com.aspsine.swipetoloadlayout.OnRefreshListener;
+import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.meiyue.meimei.R;
-import com.meiyue.meimei.RequestParamete.LoginParams;
 import com.meiyue.meimei.adapter.MyTextAdapter;
 import com.meiyue.meimei.base.BaseActivity;
 import com.meiyue.meimei.base.BaseRecylerAdapter;
-import com.meiyue.meimei.http.SimpleMyCallBack;
-import com.meiyue.meimei.response.HttpExceptionBean;
-import com.meiyue.meimei.response.LoginBean;
 import com.meiyue.meimei.ui.Mime.LoginPage.LoginActivity;
 import com.meiyue.meimei.utils.ToastUtils;
-import com.meiyue.meimei.view.swipetoloadlayout.OnLoadMoreListener;
-import com.meiyue.meimei.view.swipetoloadlayout.OnRefreshListener;
-import com.meiyue.meimei.view.swipetoloadlayout.SwipeToLoadLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import rx.Subscription;
 
 
 public class WelcomeActivity extends BaseActivity implements OnRefreshListener,OnLoadMoreListener {
@@ -37,37 +31,38 @@ public class WelcomeActivity extends BaseActivity implements OnRefreshListener,O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_welcome);
 
-        initApi();
-
-        /**
-         * 网络请求
-         */
-        LoginParams mLoginParams = new LoginParams("13253515580","123456");
-        Subscription subscription =  mApiWrapper.getUerInfo(mLoginParams)
-                .subscribe(newMySubscriber(new SimpleMyCallBack<LoginBean>() {
-                    // 这个方法根据需要重写 之前已经toast了，如果toast了还要做其他的事情，就重写这个方法
-                    @Override
-                    public void onError(HttpExceptionBean mHttpExceptionBean) {
-                        super.onError(mHttpExceptionBean);
-                        showToast("yoxin");
-                    }
-                    @Override
-                    public void onNext(LoginBean mLogin) {
-                        showToast(mLogin.getMsg());
-                    }
-
-                    @Override
-                    public void onCompleted() {
-                        showToast("请求完成");
-                    }
-                }));
-        mCompositeSubscription.add(subscription);
+//        initApi();
+//
+//        /**
+//         * 网络请求
+//         */
+//        LoginParams mLoginParams = new LoginParams("13253515580","123456");
+//        Subscription subscription =  getMApiWrapper().getUerInfo(mLoginParams)
+//                .subscribe(newMySubscriber(new SimpleMyCallBack<LoginBean>() {
+//                    // 这个方法根据需要重写 之前已经toast了，如果toast了还要做其他的事情，就重写这个方法
+//                    @Override
+//                    public void onError(HttpExceptionBean mHttpExceptionBean) {
+//                        super.onError(mHttpExceptionBean);
+//                        showToast("yoxin");
+//                    }
+//                    @Override
+//                    public void onNext(LoginBean mLogin) {
+//                        showToast(mLogin.getMsg());
+//                    }
+//
+//                    @Override
+//                    public void onCompleted() {
+//                        showToast("请求完成");
+//                    }
+//                }));
+//        getMCompositeSubscription().add(subscription);
 
     }
 
     @Override
     public void initView() {
 
+        setTitle("美美直聘");
         /**
          * 刷新 recyclerView 点击事件
          */

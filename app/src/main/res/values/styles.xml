@@ -8,4 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- 一般字体 -->
+    <style name="Text">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- 标题栏标题文字 -->
+    <style name="Text.Title" parent="@style/Text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
 </resources>
