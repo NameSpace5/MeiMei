@@ -17,7 +17,6 @@ import com.meiyue.meimei.R
 import com.meiyue.meimei.http.Api
 import com.meiyue.meimei.http.ApiWrapper
 import com.meiyue.meimei.http.SimpleMyCallBack
-import com.meiyue.meimei.mvp.BasePresenter
 import com.meiyue.meimei.response.HttpExceptionBean
 import com.meiyue.meimei.utils.ToastUtils
 import com.meiyue.meimei.widget.dialog.DialogLoading
@@ -32,7 +31,7 @@ import java.io.IOException
  * Activity  基类
  * @author Administrator
  */
-abstract class BaseActivity<T : BasePresenter<*>> : AppCompatActivity(), View.OnClickListener {
+abstract class BaseActivity<T : BaseCommonPresenter<*>> : AppCompatActivity(), View.OnClickListener {
     private lateinit var mContext: AppCompatActivity
     /**
      * 使用CompositeSubscription来持有所有的Subscriptions
@@ -87,6 +86,7 @@ abstract class BaseActivity<T : BasePresenter<*>> : AppCompatActivity(), View.On
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //设置全屏
+//        super.setContentView(R.layout.activity_base_title_layout)
         super.setContentView(R.layout.activity_base_title_layout)
         setStatusColor()
         // 设置不能横屏

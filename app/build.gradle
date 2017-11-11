@@ -49,4 +49,7 @@ dependencies {
 
     //友盟推送
     compile project(':PushSDK')
+    compile project(':library')
+    //圆形头像加载框架
+    compile 'de.hdodenhof:circleimageview:2.2.0'
 }

@@ -26,7 +26,6 @@
         android:drawableLeft="@drawable/title_back_arrow"
         android:gravity="center"
         android:layout_marginLeft="10dp"
-        android:onClick="onClick"
         android:visibility="invisible" />
 
     <!--搜索-->

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.stone.card.library.CardSlidePanel
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        bottomMarginTop="38dp"
+        itemMarginTop="10dp"
+        yOffsetStep="13dp"
+        android:id="@+id/card_slide_index"/>
+
+</LinearLayout>
