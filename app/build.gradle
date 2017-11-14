@@ -50,6 +50,8 @@ dependencies {
     //友盟推送
     compile project(':PushSDK')
     compile project(':library')
+    //slidingMenu
+    compile project(':slidelibrary')
     //圆形头像加载框架
     compile 'de.hdodenhof:circleimageview:2.2.0'
 }

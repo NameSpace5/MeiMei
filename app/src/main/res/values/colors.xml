@@ -10,6 +10,8 @@
     <color name="color_yellow">#FBBC05</color>
 
     <color name="color_white">#ffffff</color>
+    <color name="color_gray">#616161</color>
+    <color name="gray_light">#aaaaaa</color>
 
 
 </resources>

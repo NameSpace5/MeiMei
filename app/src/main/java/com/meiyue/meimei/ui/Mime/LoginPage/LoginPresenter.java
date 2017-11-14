@@ -34,11 +34,10 @@ public class LoginPresenter extends BaseCommonPresenter<LoginContract.View> impl
                     @Override
                     public void onError(HttpExceptionBean mHttpExceptionBean) {
                         super.onError(mHttpExceptionBean);
-                        ToastUtils.showShort("yoxin");
+                        ToastUtils.showShort("出错啦");
                     }
                     @Override
                     public void onNext(LoginBean mLogin) {
-                        ToastUtils.showShort("登录成功"+mLogin.toString());
                         view.loginSuccess();
                     }
                 }));

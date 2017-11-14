@@ -13,6 +13,7 @@ import android.view.Window
 import android.view.WindowManager
 import com.google.gson.Gson
 import com.google.gson.internal.`$Gson$Preconditions`.checkNotNull
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu
 import com.meiyue.meimei.R
 import com.meiyue.meimei.http.Api
 import com.meiyue.meimei.http.ApiWrapper
@@ -21,6 +22,7 @@ import com.meiyue.meimei.response.HttpExceptionBean
 import com.meiyue.meimei.utils.ToastUtils
 import com.meiyue.meimei.widget.dialog.DialogLoading
 import kotlinx.android.synthetic.main.activity_base_title_layout.*
+import kotlinx.android.synthetic.main.layout_menu.*
 import kotlinx.android.synthetic.main.title_layout.*
 import retrofit2.HttpException
 import rx.Subscriber
@@ -32,6 +34,7 @@ import java.io.IOException
  * @author Administrator
  */
 abstract class BaseActivity<T : BaseCommonPresenter<*>> : AppCompatActivity(), View.OnClickListener {
+
     private lateinit var mContext: AppCompatActivity
     /**
      * 使用CompositeSubscription来持有所有的Subscriptions
@@ -52,6 +55,7 @@ abstract class BaseActivity<T : BaseCommonPresenter<*>> : AppCompatActivity(), V
 
 
     var presenter: T? = null
+
 
     /**
      * 获取状态栏高度
@@ -85,10 +89,13 @@ abstract class BaseActivity<T : BaseCommonPresenter<*>> : AppCompatActivity(), V
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //设置全屏
-//        super.setContentView(R.layout.activity_base_title_layout)
         super.setContentView(R.layout.activity_base_title_layout)
+        //设置全屏
         setStatusColor()
+
+        //设置slidingMenu侧滑
+        setSlidingMenu()
+
         // 设置不能横屏
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_NOSENSOR
         mContext = this
@@ -98,6 +105,23 @@ abstract class BaseActivity<T : BaseCommonPresenter<*>> : AppCompatActivity(), V
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
     }
 
+    fun setSlidingMenu(){
+
+        //初始化抽屉
+
+        val menu = SlidingMenu(this)
+        menu.mode = SlidingMenu.LEFT
+        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT)
+        menu.behindOffset = 400
+        menu.touchModeAbove = SlidingMenu.TOUCHMODE_FULLSCREEN
+        menu.setMenu(R.layout.layout_menu)
+        menu_index_home.setOnClickListener(this)
+        menu_index_circle.setOnClickListener(this)
+        menu_index_guidance.setOnClickListener(this)
+        menu_index_message.setOnClickListener(this)
+        menu_index_mine.setOnClickListener(this)
+
+    }
     override fun setContentView(view: View) {
         main_content_layout.removeAllViews()
         main_content_layout.addView(view)
@@ -231,7 +255,7 @@ abstract class BaseActivity<T : BaseCommonPresenter<*>> : AppCompatActivity(), V
      * @param <T>
      * @return
     </T> */
-    fun <T> newMySubscriber(onNext: SimpleMyCallBack<T>): Subscriber<T> {
+    fun <T> newMySubscriber(onNext: SimpleMyCallBack<Any>): Subscriber<T> {
         return object : Subscriber<T>() {
             override fun onCompleted() {
                 hideLoadingDialog()

@@ -22,4 +22,82 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <!--文本框-->
+    <style name="EditText" parent="android:Widget.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+    <!--文本框:数字-->
+    <style name="EditText.Number" parent="EditText">
+        <item name="android:inputType">number</item>
+    </style>
+
+    <style name="EditText.Money" parent="EditText">
+        <item name="android:inputType">numberDecimal</item>
+    </style>
+    <!--文本框:数字、英文-->
+    <style name="EditText.NumberAndEnglish" parent="EditText">
+        <item name="android:inputType">textVisiblePassword</item>
+        <item name="android:digits">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+        </item>
+    </style>
+
+    <!--文本框:密码-->
+    <style name="EditText.PassWord" parent="EditText">
+    </style>
+
+    <!--登录:密码-->
+    <style name="EditText.Login" parent="EditText">
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <!--通用提交按钮-->
+    <style name="Button.SubmitBtn" parent="android:Widget.Button">
+        <item name="android:background">@drawable/shape_btn_bg_orange</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textColor">@color/color_white</item>
+    </style>
+
+    <!--登陆提交按钮-->
+    <style name="Button.LoginSubmitBtn" parent="android:Widget.Button">
+        <item name="android:background">@drawable/login_shape_bt</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+
+    <!--注册提交按钮-->
+    <style name="Button.LoginSubmitBtn2" parent="android:Widget.Button">
+        <item name="android:background">@drawable/login_shape_bj</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <!--注册页面的checkbox-->
+    <style name="registerCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@drawable/reg_cb_bg</item>
+    </style>
 </resources>

@@ -116,11 +116,8 @@ public class WelcomeActivity extends BaseActivity implements OnRefreshListener,O
 
     }
 
-
     @Override
     public void onClick(View view) {
 
     }
-
-
 }

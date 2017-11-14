@@ -65,10 +65,7 @@ public class WebActivity extends BaseActivity {
     public void bindEvent() {
 
     }
-    @Override
-    public void onClick(View view) {
 
-    }
 
     public HashMap<String, HybridHandler> getmHybridHandlerMap() {
         if(mHybridHandlerHashMap == null){
@@ -181,4 +178,8 @@ public class WebActivity extends BaseActivity {
         return true;
     }
 
+    @Override
+    public void onClick(View view) {
+
+    }
 }
